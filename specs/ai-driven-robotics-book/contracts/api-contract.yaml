@@ -1,0 +1,265 @@
+# API Contract for AI-Driven Physical AI & Humanoid Robotics Book
+
+## Authentication API
+
+### POST /auth/register
+Register a new user
+
+**Request:**
+```json
+{
+  "email": "user@example.com",
+  "password": "SecurePassword123!",
+  "first_name": "John",
+  "last_name": "Doe"
+}
+```
+
+**Response (201 Created):**
+```json
+{
+  "id": "uuid-string",
+  "email": "user@example.com",
+  "first_name": "John",
+  "last_name": "Doe",
+  "role": "learner",
+  "created_at": "2025-12-12T10:30:00Z"
+}
+```
+
+**Response (400 Bad Request):**
+```json
+{
+  "detail": "Email already registered"
+}
+```
+
+### POST /auth/login
+Authenticate user and return JWT tokens
+
+**Request:**
+```json
+{
+  "email": "user@example.com",
+  "password": "SecurePassword123!"
+}
+```
+
+**Response (200 OK):**
+```json
+{
+  "access_token": "jwt-token-string",
+  "token_type": "bearer",
+  "user": {
+    "id": "uuid-string",
+    "email": "user@example.com",
+    "role": "learner"
+  }
+}
+```
+
+**Response (401 Unauthorized):**
+```json
+{
+  "detail": "Incorrect email or password"
+}
+```
+
+### GET /auth/me
+Get current authenticated user info
+
+**Headers:**
+```
+Authorization: Bearer {access_token}
+```
+
+**Response (200 OK):**
+```json
+{
+  "id": "uuid-string",
+  "email": "user@example.com",
+  "first_name": "John",
+  "last_name": "Doe",
+  "role": "learner",
+  "created_at": "2025-12-12T10:30:00Z"
+}
+```
+
+## Modules API
+
+### GET /modules
+List all available modules
+
+**Response (200 OK):**
+```json
+[
+  {
+    "id": "uuid-string",
+    "title": "The Robotic Nervous System (ROS 2)",
+    "description": "Introduction to ROS 2 concepts...",
+    "module_number": 1,
+    "learning_objectives": [
+      "Understand ROS 2 nodes and topics",
+      "Work with rclpy to connect Python agents",
+      "Understand URDF for humanoids"
+    ],
+    "estimated_duration_hours": 10,
+    "is_published": true
+  }
+]
+```
+
+### GET /modules/{module_id}
+Get details of a specific module
+
+**Response (200 OK):**
+```json
+{
+  "id": "uuid-string",
+  "title": "The Robotic Nervous System (ROS 2)",
+  "description": "Introduction to ROS 2 concepts...",
+  "module_number": 1,
+  "learning_objectives": [
+    "Understand ROS 2 nodes and topics",
+    "Work with rclpy to connect Python agents",
+    "Understand URDF for humanoids"
+  ],
+  "estimated_duration_hours": 10,
+  "is_published": true,
+  "lessons": [
+    {
+      "id": "lesson-uuid",
+      "title": "Introduction to ROS 2 Nodes",
+      "lesson_number": 1,
+      "duration_minutes": 45,
+      "is_free": true,
+      "is_published": true
+    }
+  ]
+}
+```
+
+## Lessons API
+
+### GET /lessons/{lesson_id}
+Get content of a specific lesson
+
+**Headers:**
+```
+Authorization: Bearer {access_token}  # Required if lesson is not free
+```
+
+**Response (200 OK):**
+```json
+{
+  "id": "uuid-string",
+  "title": "Introduction to ROS 2 Nodes",
+  "content": "# ROS 2 Nodes\n\nIn ROS 2, a node is...",
+  "module_id": "module-uuid",
+  "lesson_number": 1,
+  "duration_minutes": 45,
+  "is_free": true,
+  "assets": [
+    {
+      "filename": "ros2-architecture.png",
+      "file_path": "/assets/module-1/ros2-architecture.png",
+      "asset_type": "image",
+      "description": "ROS 2 architecture diagram"
+    }
+  ],
+  "code_examples": [
+    {
+      "filename": "simple_node.py",
+      "file_path": "/code-examples/module-1/simple_node.py",
+      "description": "Basic ROS 2 node example"
+    }
+  ]
+}
+```
+
+**Response (401 Unauthorized):**
+```json
+{
+  "detail": "Authentication required for this lesson"
+}
+```
+
+### POST /lessons/{lesson_id}/progress
+Update user progress for a lesson
+
+**Headers:**
+```
+Authorization: Bearer {access_token}
+```
+
+**Request:**
+```json
+{
+  "progress_percentage": 75,
+  "status": "in_progress"  // or "completed"
+}
+```
+
+**Response (200 OK):**
+```json
+{
+  "id": "progress-uuid",
+  "user_id": "user-uuid",
+  "lesson_id": "lesson-uuid",
+  "status": "in_progress",
+  "progress_percentage": 75,
+  "last_accessed": "2025-12-12T11:30:00Z"
+}
+```
+
+## Chat API (Future Implementation)
+
+### POST /chat/sessions
+Create a new chat session
+
+**Headers:**
+```
+Authorization: Bearer {access_token}  # Optional for anonymous chats
+```
+
+**Request:**
+```json
+{
+  "initial_query": "Explain ROS 2 topics in simple terms"
+}
+```
+
+**Response (201 Created):**
+```json
+{
+  "id": "session-uuid",
+  "title": "Explain ROS 2 topics in simple terms",
+  "created_at": "2025-12-12T12:00:00Z"
+}
+```
+
+### POST /chat/sessions/{session_id}/messages
+Add a message to a chat session
+
+**Headers:**
+```
+Authorization: Bearer {access_token}
+```
+
+**Request:**
+```json
+{
+  "content": "How do topics differ from services?"
+}
+```
+
+**Response (201 Created):**
+```json
+{
+  "id": "message-uuid",
+  "session_id": "session-uuid",
+  "role": "user",
+  "content": "How do topics differ from services?",
+  "timestamp": "2025-12-12T12:05:00Z"
+}
+```

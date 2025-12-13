@@ -1,55 +1,46 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!-- SYNC IMPACT REPORT
+Version change: N/A -> 1.0.0
+Modified principles: None (new constitution)
+Added sections: All sections
+Removed sections: None
+Templates requiring updates: ✅ .specify/templates/plan-template.md, ✅ .specify/templates/spec-template.md, ✅ .specify/templates/tasks-template.md
+Follow-up TODOs: None
+-->
+
+# Humanoid Robotics Interactive Textbook Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Content-First Approach
+Every feature and capability must serve the educational mission of delivering high-quality robotics content. All additions must enhance the learning experience for humanoid robotics students. Educational value must drive all technical decisions, not technological novelty alone.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Modular Architecture
+The system must support independent modules that can be developed, tested, and deployed separately. Each robotics module (ROS 2, Gazebo/Unity, NVIDIA Isaac™, VLA) must be self-contained with clear interfaces. This enables parallel development and flexible curriculum customization.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Authentication-Driven Access Control (NON-NEGOTIABLE)
+All gated educational content must be protected by robust authentication. User roles (learner, admin) must be strictly enforced with proper authorization checks. No educational content should ever be accessible without proper authentication where specified.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Docusaurus Integration Excellence
+Leverage Docusaurus strengths for content delivery, search, and navigation. All custom features must integrate seamlessly with Docusaurus architecture. Maintain compatibility with Docusaurus upgrade paths and community plugins.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Simulation-Ready Design
+All content and examples must be designed with practical simulation in mind. Code samples, exercises, and demonstrations should work with Gazebo, Unity, or Isaac Sim environments. Documentation must include both theoretical concepts and practical implementation guidance.
 
-### [PRINCIPLE_6_NAME]
+### VI. AI-Enhanced Learning Experience
+Design all content to be compatible with future AI integration. Structure content with clear semantics, consistent formatting, and searchable concepts to enable effective RAG implementations for the AI learning assistant.
 
-
-[PRINCIPLE__DESCRIPTION]
-
-## [SECTION_2_NAME]
+## Technical Standards
 <!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+All code must follow modern JavaScript/TypeScript standards with proper typing. Authentication must use industry-standard token-based sessions with secure storage. Performance targets: page load under 3 seconds, search response under 500ms. Security scanning required for all dependencies and code submissions.
 
-## [SECTION_3_NAME]
+## Development Workflow
 <!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+All changes require peer review before merging. Unit tests must cover 80%+ of new code. Integration tests required for authentication and content protection features. Feature branches must pass all tests before merging to main. Documentation updates required for all user-facing changes.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution governs all development decisions for the Humanoid Robotics Interactive Textbook. All PRs must demonstrate compliance with these principles. Major architectural decisions require explicit justification against these principles. Any amendments to this constitution must be documented with clear rationale and stakeholder approval.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2025-12-12 | **Last Amended**: 2025-12-12

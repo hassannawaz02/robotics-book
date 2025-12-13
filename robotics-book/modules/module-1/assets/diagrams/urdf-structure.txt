@@ -1,0 +1,1 @@
+[URDF Structure Diagram - showing links and joints for humanoid robot]

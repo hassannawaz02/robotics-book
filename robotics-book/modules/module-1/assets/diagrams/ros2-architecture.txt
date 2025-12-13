@@ -1,0 +1,1 @@
+[Simple ROS 2 Architecture Diagram - showing nodes, topics, and services]

@@ -1,0 +1,17 @@
+# Python requirements for Digital Twin Module (Gazebo & Unity)
+# These are placeholder requirements - actual requirements will depend on specific implementations
+
+# For Gazebo integration
+rospy
+gazebo_msgs
+geometry_msgs
+sensor_msgs
+
+# For Unity integration (likely ML-Agents or similar)
+numpy
+unityagents  # This would be for Unity ML-Agents
+
+# General utilities
+pyyaml
+matplotlib
+opencv-python

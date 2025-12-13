@@ -1,0 +1,89 @@
+.features {
+  display: flex;
+  align-items: center;
+  padding: 4rem 0;
+  width: 100%;
+  background-color: #f9f9f9;
+}
+
+.featureSvg {
+  height: 180px;
+  width: 180px;
+  margin: 0 auto 1rem;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+.featureCard {
+  background-color: white;
+  border-radius: 8px;
+  padding: 2rem 1.5rem;
+  margin: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.featureCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.featureTitle {
+  color: #2e8555;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+
+.featureDescription {
+  color: #333;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-top: auto;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 996px) {
+  .featureSvg {
+    height: 150px;
+    width: 150px;
+  }
+
+  .featureCard {
+    padding: 1.5rem 1rem;
+    margin: 0.75rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .featureSvg {
+    height: 120px;
+    width: 120px;
+  }
+
+  .featureCard {
+    padding: 1.5rem 1rem;
+    margin: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .features {
+    padding: 2rem 0;
+  }
+
+  .featureSvg {
+    height: 100px;
+    width: 100px;
+  }
+
+  .featureCard {
+    padding: 1.25rem 0.75rem;
+    margin: 0.25rem;
+  }
+
+  .featureDescription {
+    font-size: 0.9rem;
+  }
+}
