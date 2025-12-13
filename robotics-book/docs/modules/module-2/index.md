@@ -44,7 +44,7 @@ Before starting this module, ensure you have:
 
 ## Code Examples
 
-All code examples for this module can be found in the [code-examples](../code-examples/) directory.
+All code examples for this module can be found in the [code-examples](../../modules/module-2/code-examples/) directory.
 
 ## Authentication
 
