@@ -54,7 +54,39 @@ const sidebars: SidebarsConfig = {
         id: 'modules/module-2/index'
       }
     },
-    // Additional modules will be added here as they are created
+    {
+      type: 'category',
+      label: 'Module 3 - AI-Robot Brain (NVIDIA Isaac™)',
+      items: [
+        'modules/module-3/lessons/intro',
+        'modules/module-3/lessons/isaac-sim',
+        'modules/module-3/lessons/isaac-ros',
+        'modules/module-3/lessons/nav2-planning',
+        'modules/module-3/lessons/exercises'
+      ],
+      link: {
+        type: 'doc',
+        id: 'modules/module-3/lessons/intro'
+      }
+    },
+    {
+      type: 'category',
+      label: 'Module 4 - Vision-Language-Action (VLA) Robotics',
+      items: [
+        'modules/module-4/index',
+        'modules/module-4/introduction-to-vla',
+        'modules/module-4/voice-to-action-whisper',
+        'modules/module-4/llm-planning-pipeline',
+        'modules/module-4/perception-module',
+        'modules/module-4/final-project-architecture',
+        'modules/module-4/capstone-lab',
+        'modules/module-4/troubleshooting'
+      ],
+      link: {
+        type: 'doc',
+        id: 'modules/module-4/index'
+      }
+    }
   ]
 };
 

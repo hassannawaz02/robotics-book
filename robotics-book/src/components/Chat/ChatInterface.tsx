@@ -17,7 +17,7 @@ const ChatInterface: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
-      content: 'Hello! I\'m your AI assistant for the Humanoid Robotics textbook. How can I help you with Module 1: The Robotic Nervous System?',
+      content: 'Hello! I\'m your AI assistant for the Humanoid Robotics textbook. How can I help you with Module 3: AI-Robot Brain (NVIDIA Isaac™)? I can assist with Isaac Sim, Isaac ROS, or Nav2 concepts.',
       role: 'assistant',
       timestamp: new Date()
     }
@@ -55,9 +55,9 @@ const ChatInterface: React.FC = () => {
     // Simulate AI response (placeholder - no actual backend integration yet)
     setTimeout(() => {
       const responses = [
-        "I understand you're asking about ROS 2 concepts. Since this is a placeholder implementation, I can't provide specific answers yet. The backend for this AI chat will be implemented in a future phase with RAG integration.",
-        "For Module 1 content, please refer to the lessons in the textbook. The AI assistant functionality will be available after the backend integration is complete.",
-        "This is a placeholder response. In the full implementation, I would analyze the textbook content to provide accurate answers to your questions about ROS 2, nodes, topics, services, and URDF."
+        "I understand you're asking about Isaac Sim, Isaac ROS, or Nav2 concepts. Since this is a placeholder implementation, I can't provide specific answers yet. The backend for this AI chat will be implemented in a future phase with RAG integration.",
+        "For Module 3 content, please refer to the lessons in the textbook. The AI assistant functionality will be available after the backend integration is complete.",
+        "This is a placeholder response. In the full implementation, I would analyze the textbook content to provide accurate answers to your questions about Isaac Sim simulation, Isaac ROS navigation, or Nav2 path planning."
       ];
 
       const randomResponse = responses[Math.floor(Math.random() * responses.length)];
@@ -78,7 +78,7 @@ const ChatInterface: React.FC = () => {
     <div className="chat-container max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="bg-blue-600 text-white p-4">
         <h3 className="text-lg font-semibold">AI Assistant for Robotics Textbook</h3>
-        <p className="text-sm opacity-80">Module 1: The Robotic Nervous System (ROS 2)</p>
+        <p className="text-sm opacity-80">Module 3: AI-Robot Brain (NVIDIA Isaac™)</p>
       </div>
 
       <div className="border-b p-4 bg-gray-50">
@@ -125,7 +125,7 @@ const ChatInterface: React.FC = () => {
             type="text"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
-            placeholder="Ask a question about Module 1..."
+            placeholder="Ask a question about Isaac Sim, Isaac ROS, or Nav2..."
             className="flex-1 border border-gray-300 rounded-l-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
             disabled={isLoading}
           />

@@ -1,0 +1,3 @@
+<!-- Placeholder for Isaac simulation example image -->
+<!-- This is a placeholder file. In a real implementation, this would be an actual image file (PNG, JPG, etc.) -->
+<!-- The actual image would show an example of Isaac Sim in action with a robot simulation -->

@@ -1,0 +1,153 @@
+# API Contract: Isaac Module Lesson Access
+
+## Overview
+This API contract defines the endpoints for accessing Isaac module lessons with JWT authentication.
+
+## Base URL
+`/api/v1/lessons`
+
+## Authentication
+All endpoints require JWT token in the Authorization header:
+```
+Authorization: Bearer {jwt_token}
+```
+
+## Endpoints
+
+### GET /module-3/{lessonId}
+Retrieve a specific lesson from Module 3 (AI-Robot Brain).
+
+#### Path Parameters
+- `lessonId` (string, required): The ID of the lesson to retrieve (e.g., "01-intro", "02-isaac-sim", etc.)
+
+#### Headers
+- `Authorization` (string, required): JWT token for authentication
+
+#### Responses
+- `200 OK`: Lesson content retrieved successfully
+  ```json
+  {
+    "id": "01-intro",
+    "title": "Introduction to Isaac Ecosystem",
+    "content": "# Introduction to Isaac Sim, Isaac ROS, and Nav2\n\nThis lesson introduces...",
+    "module": "module-3",
+    "lessonNumber": 1,
+    "type": "lesson",
+    "assets": [
+      "diagrams/isaac-architecture.svg",
+      "images/simulation-example.png"
+    ],
+    "codeExamples": [
+      "python/isaac-scripts/setup-example.py"
+    ],
+    "createdAt": "2025-12-16T00:00:00Z",
+    "updatedAt": "2025-12-16T00:00:00Z"
+  }
+  ```
+
+- `401 Unauthorized`: Invalid or missing JWT token
+- `403 Forbidden`: User does not have access to this lesson
+- `404 Not Found`: Lesson does not exist
+
+### GET /module-3/
+Retrieve the list of all lessons in Module 3.
+
+#### Headers
+- `Authorization` (string, required): JWT token for authentication
+
+#### Responses
+- `200 OK`: List of lessons retrieved successfully
+  ```json
+  {
+    "module": "module-3",
+    "title": "Module 3 – AI-Robot Brain",
+    "description": "Isaac Sim, Isaac ROS, Nav2",
+    "position": 3,
+    "lessons": [
+      {
+        "id": "01-intro",
+        "title": "Introduction to Isaac Ecosystem",
+        "lessonNumber": 1,
+        "type": "lesson",
+        "url": "/api/v1/lessons/module-3/01-intro"
+      },
+      {
+        "id": "02-isaac-sim",
+        "title": "Isaac Sim Fundamentals",
+        "lessonNumber": 2,
+        "type": "lesson",
+        "url": "/api/v1/lessons/module-3/02-isaac-sim"
+      },
+      {
+        "id": "03-isaac-ros",
+        "title": "Isaac ROS Navigation",
+        "lessonNumber": 3,
+        "type": "lesson",
+        "url": "/api/v1/lessons/module-3/03-isaac-ros"
+      },
+      {
+        "id": "04-nav2-planning",
+        "title": "Nav2 Path Planning",
+        "lessonNumber": 4,
+        "type": "lesson",
+        "url": "/api/v1/lessons/module-3/04-nav2-planning"
+      },
+      {
+        "id": "05-exercises",
+        "title": "Module Exercises and Assessments",
+        "lessonNumber": 5,
+        "type": "exercise",
+        "url": "/api/v1/lessons/module-3/05-exercises"
+      }
+    ]
+  }
+  ```
+
+- `401 Unauthorized`: Invalid or missing JWT token
+- `403 Forbidden`: User does not have access to this module
+
+### GET /module-3/code-examples/{exampleId}
+Retrieve a specific code example for Isaac scripts.
+
+#### Path Parameters
+- `exampleId` (string, required): The ID of the code example to retrieve
+
+#### Headers
+- `Authorization` (string, required): JWT token for authentication
+
+#### Responses
+- `200 OK`: Code example retrieved successfully
+  ```json
+  {
+    "id": "setup-example",
+    "moduleId": "module-3",
+    "lessonId": "02-isaac-sim",
+    "filename": "setup-example.py",
+    "content": "# Isaac ROS setup example\nimport rospy\n...",
+    "description": "Basic Isaac ROS setup and initialization",
+    "language": "python",
+    "createdAt": "2025-12-16T00:00:00Z",
+    "updatedAt": "2025-12-16T00:00:00Z"
+  }
+  ```
+
+- `401 Unauthorized`: Invalid or missing JWT token
+- `403 Forbidden`: User does not have access to this code example
+- `404 Not Found`: Code example does not exist
+
+## Error Response Format
+All error responses follow this format:
+```json
+{
+  "error": {
+    "code": "ERROR_CODE",
+    "message": "Human-readable error message",
+    "details": "Additional error details if applicable"
+  }
+}
+```
+
+## JWT Token Validation
+- Tokens must be valid and not expired
+- Tokens must have appropriate scopes for the requested resource
+- Token validation follows standard JWT verification practices

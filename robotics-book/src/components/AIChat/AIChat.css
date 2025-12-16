@@ -1,0 +1,124 @@
+.ai-chat-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.ai-chat-toggle {
+  background-color: #4ecdc4;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ai-chat-toggle:hover {
+  background-color: #45b7aa;
+}
+
+.ai-chat-window {
+  width: 350px;
+  height: 500px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.ai-chat-header {
+  background-color: #4ecdc4;
+  color: white;
+  padding: 15px;
+}
+
+.ai-chat-header h3 {
+  margin: 0 0 5px 0;
+  font-size: 16px;
+}
+
+.ai-chat-header p {
+  margin: 0;
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+.ai-chat-messages {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ai-chat-message {
+  max-width: 80%;
+  padding: 10px 15px;
+  border-radius: 18px;
+  font-size: 14px;
+}
+
+.user-message {
+  align-self: flex-end;
+  background-color: #4ecdc4;
+  color: white;
+  border-bottom-right-radius: 5px;
+}
+
+.ai-message {
+  align-self: flex-start;
+  background-color: #f0f0f0;
+  color: #333;
+  border-bottom-left-radius: 5px;
+}
+
+.ai-chat-input {
+  display: flex;
+  padding: 15px;
+  border-top: 1px solid #eee;
+  background-color: white;
+}
+
+.ai-chat-input input {
+  flex: 1;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  outline: none;
+}
+
+.ai-chat-input button {
+  margin-left: 10px;
+  padding: 10px 15px;
+  background-color: #4ecdc4;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.ai-chat-input button:hover {
+  background-color: #45b7aa;
+}
+
+/* Closed state - just show the toggle button */
+.ai-chat-container.closed .ai-chat-window {
+  display: none;
+}
+
+/* Open state - show both toggle and chat window */
+.ai-chat-container.open {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}

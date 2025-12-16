@@ -15,8 +15,7 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Learn the Robot Operating System (ROS 2) framework for building robotic applications.
-        Master communication protocols, package management, and development tools.
+        Master ROS 2 framework for robotic applications and communication protocols.
       </>
     ),
   },
@@ -25,8 +24,7 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Explore simulation environments like Gazebo and Unity for testing robotics algorithms
-        in safe, controlled virtual worlds before deploying to real hardware.
+        Explore Gazebo and Unity for testing robotics algorithms in virtual worlds.
       </>
     ),
   },
@@ -35,8 +33,7 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Develop AI-powered robotics applications using NVIDIA Isaac™ platform.
-        Leverage GPU acceleration for computer vision, perception, and control.
+        Develop AI-powered robotics with GPU acceleration for vision and control.
       </>
     ),
   },
@@ -45,8 +42,7 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/undraw_vla.svg').default,
     description: (
       <>
-        Build multimodal AI systems that integrate vision, language, and action.
-        Create robots that understand natural language commands and perceive their environment.
+        Build multimodal AI systems integrating vision, language, and robotic action.
       </>
     ),
   },
@@ -54,7 +50,7 @@ const FeatureList: FeatureItem[] = [
 
 function Feature({title, Svg, description}: FeatureItem) {
   return (
-    <div className={clsx('col col--4')}>
+    <div className={clsx('col col--3')}>
       <div className={styles.featureCard}>
         <div className="text--center">
           <Svg className={styles.featureSvg} role="img" />
@@ -72,6 +68,10 @@ export default function HomepageFeatures(): ReactNode {
   return (
     <section className={styles.features}>
       <div className="container">
+        <div className="text--center padding-bottom--lg">
+          <Heading as="h2" className={styles.featureHeading}>Course Modules</Heading>
+          <p className={styles.featureSubHeading}>Comprehensive curriculum designed for next-generation robotics developers</p>
+        </div>
         <div className="row">
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />

@@ -3,63 +3,99 @@
   align-items: center;
   padding: 4rem 0;
   width: 100%;
-  background-color: #f9f9f9;
+  background-color: #f8f9fa;
+}
+
+.featureHeading {
+  color: #1a1a1a;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.featureSubHeading {
+  color: #666;
+  font-size: 1.2rem;
+  font-weight: 400;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .featureSvg {
-  height: 180px;
-  width: 180px;
+  height: 150px;
+  width: 150px;
   margin: 0 auto 1rem;
   filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
 }
 
 .featureCard {
   background-color: white;
-  border-radius: 8px;
+  border-radius: 12px;
   padding: 2rem 1.5rem;
-  margin: 0.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin: 0.75rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   height: 100%;
   display: flex;
   flex-direction: column;
+  border: 1px solid #e9ecef;
 }
 
 .featureCard:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  border-color: #4a90e2;
 }
 
 .featureTitle {
-  color: #2e8555;
+  color: #2c3e50;
+  font-size: 1.5rem;
+  font-weight: 600;
   margin-bottom: 1rem;
   flex-grow: 1;
 }
 
 .featureDescription {
-  color: #333;
-  font-size: 0.95rem;
+  color: #555;
+  font-size: 1rem;
   line-height: 1.6;
   margin-top: auto;
 }
 
 /* Responsive adjustments */
 @media screen and (max-width: 996px) {
+  .featureHeading {
+    font-size: 2rem;
+  }
+
+  .featureSubHeading {
+    font-size: 1.1rem;
+  }
+
   .featureSvg {
-    height: 150px;
-    width: 150px;
+    height: 120px;
+    width: 120px;
   }
 
   .featureCard {
     padding: 1.5rem 1rem;
-    margin: 0.75rem;
+    margin: 0.5rem;
   }
 }
 
 @media screen and (max-width: 768px) {
+  .featureHeading {
+    font-size: 1.8rem;
+  }
+
+  .featureSubHeading {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
   .featureSvg {
-    height: 120px;
-    width: 120px;
+    height: 100px;
+    width: 100px;
   }
 
   .featureCard {
@@ -73,14 +109,26 @@
     padding: 2rem 0;
   }
 
+  .featureHeading {
+    font-size: 1.5rem;
+  }
+
+  .featureSubHeading {
+    font-size: 0.9rem;
+  }
+
   .featureSvg {
-    height: 100px;
-    width: 100px;
+    height: 80px;
+    width: 80px;
   }
 
   .featureCard {
-    padding: 1.25rem 0.75rem;
+    padding: 1.25rem 1rem;
     margin: 0.25rem;
+  }
+
+  .featureTitle {
+    font-size: 1.25rem;
   }
 
   .featureDescription {
