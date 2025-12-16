@@ -13,7 +13,7 @@ export default function handler(req, res) {
   // 3. Check if user has access to requested Nav2 lesson
   // 4. Return lesson content if authorized
 
-  const { lessonId } = req.query;
+  const { lessonId } = req.query || {};
 
   // Mock token validation (in real app, use proper JWT verification)
   const authHeader = req.headers.authorization;

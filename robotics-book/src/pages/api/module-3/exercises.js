@@ -13,7 +13,7 @@ export default function handler(req, res) {
   // 3. Check if user has access to requested exercises
   // 4. Return exercise content if authorized
 
-  const { exerciseId } = req.query;
+  const { exerciseId } = req.query || {};
 
   // Mock token validation (in real app, use proper JWT verification)
   const authHeader = req.headers.authorization;
